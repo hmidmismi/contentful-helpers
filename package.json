@@ -1,5 +1,5 @@
 {
-  "name": "@hemidemisemi/contentful-helpers",
+  "name": "@hmidmismi/contentful-helpers",
   "version": "0.2.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -7,7 +7,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hemidemisemi/contentful-helpers.git"
+    "url": "git+https://github.com/hmidmismi/contentful-helpers.git"
   },
   "license": "MIT",
   "scripts": {
