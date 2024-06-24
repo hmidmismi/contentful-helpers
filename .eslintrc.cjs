@@ -1,0 +1,68 @@
+module.exports = {
+  root: true,
+  ignorePatterns: ['node_modules/', 'dist/', '*.config.js', 'tsconfig.json'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier', // Ensures ESLint doesn't conflict with Prettier
+    'plugin:prettier/recommended', // Enables eslint-plugin-prettier and displays Prettier errors as ESLint errors
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 2021,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+    project: './tsconfig.json',
+  },
+  plugins: ['react', 'import', 'prettier', '@typescript-eslint'],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true,
+        project: './tsconfig.json',
+      },
+    },
+  },
+  rules: {
+    'no-console': 'warn',
+    'react/no-unknown-property': ['error', { ignore: ['sx'] }],
+    'react/jsx-no-useless-fragment': 'off',
+    'react/prop-types': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    '@typescript-eslint/no-unsafe-call': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unused-vars': ['warn', { varsIgnorePattern: '^_', argsIgnorePattern: '^_' }],
+    '@typescript-eslint/no-unsafe-return': 'off',
+    'import/no-unresolved': 'error',
+    'react/button-has-type': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'prettier/prettier': 'error', // Ensure Prettier issues are shown as ESLint errors
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+        pathGroups: [
+          {
+            pattern: 'react',
+            group: 'external',
+            position: 'before',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['react'],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
+    ],
+    semi: ['error', 'always'], // Ensure semicolons are always used
+  },
+};

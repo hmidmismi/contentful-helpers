@@ -1,0 +1,1 @@
+export { contentfulClient } from './contentfulClient';
