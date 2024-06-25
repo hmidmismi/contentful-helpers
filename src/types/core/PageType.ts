@@ -4,5 +4,5 @@ import { CommonType, ImageType } from '@/types/core';
 
 export interface PageType extends CommonType {
   body?: RichTextDocument | null;
-  images: ImageType[];
+  images?: ImageType[];
 }

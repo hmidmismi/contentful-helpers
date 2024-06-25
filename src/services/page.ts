@@ -3,7 +3,11 @@
 import { contentfulClient } from '@/lib';
 import { TypePageSkeleton, PageType } from '@/types';
 import { parseContentfulPage } from '@/utils';
-import { PageSlugContextParams } from '@/types/routes';
+
+type FetchPageOptions = {
+  slug: string;
+  // preview: boolean;
+};
 
 export async function fetchPages(): Promise<PageType[]> {
   const contentful = contentfulClient();
@@ -17,7 +21,7 @@ export async function fetchPages(): Promise<PageType[]> {
   return pagesResult.items.map((pageEntry) => parseContentfulPage(pageEntry) as PageType);
 }
 
-export async function fetchPage({ slug }: PageSlugContextParams): Promise<PageType | null> {
+export async function fetchPage({ slug }: FetchPageOptions): Promise<PageType | null> {
   const contentful = contentfulClient();
 
   const pagesResult = await contentful.getEntries<TypePageSkeleton>({

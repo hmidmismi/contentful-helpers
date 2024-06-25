@@ -9,7 +9,7 @@ import type { EntryFieldTypes } from 'contentful';
 type ContentfulSymbolToString<T> = T extends EntryFieldTypes.Symbol ? string : T;
 
 export interface CommonType {
-  id: string;
+  id?: string;
   title: ContentfulSymbolToString<EntryFieldTypes.Symbol>;
   slug?: ContentfulSymbolToString<EntryFieldTypes.Symbol>;
 }

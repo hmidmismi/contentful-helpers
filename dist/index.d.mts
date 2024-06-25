@@ -1,6 +1,5 @@
 import { Document } from '@contentful/rich-text-types';
 import { EntryFieldTypes, EntrySkeletonType, ChainModifiers, LocaleCode, Entry, Asset, AssetLink } from 'contentful';
-import { ParsedUrlQuery } from 'querystring';
 
 interface TypePageFields {
     title: EntryFieldTypes.Symbol;
@@ -13,7 +12,7 @@ type TypePage<Modifiers extends ChainModifiers, Locales extends LocaleCode = Loc
 
 type ContentfulSymbolToString<T> = T extends EntryFieldTypes.Symbol ? string : T;
 interface CommonType {
-    id: string;
+    id?: string;
     title: ContentfulSymbolToString<EntryFieldTypes.Symbol>;
     slug?: ContentfulSymbolToString<EntryFieldTypes.Symbol>;
 }
@@ -27,11 +26,7 @@ type ImageType = Omit<CommonType, 'title' | 'slug'> & {
 
 interface PageType extends CommonType {
     body?: Document | null;
-    images: ImageType[];
-}
-
-interface PageSlugContextParams extends ParsedUrlQuery {
-    slug: string | string[];
+    images?: ImageType[];
 }
 
 type PageEntry = Entry<TypePageSkeleton, undefined, string>;
@@ -49,4 +44,4 @@ declare function fetchPageById({ id }: {
     id: string;
 }): Promise<PageType | null>;
 
-export { type CommonType, type ImageType, type PageSlugContextParams, type PageType, type TypePage, type TypePageFields, type TypePageSkeleton, fetchPage, fetchPageById, fetchPages, parseContentfulContentImage, parseContentfulPage };
+export { type CommonType, type ImageType, type PageType, type TypePage, type TypePageFields, type TypePageSkeleton, fetchPage, fetchPageById, fetchPages, parseContentfulContentImage, parseContentfulPage };
