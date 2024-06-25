@@ -1,1 +1,1 @@
-export type { TypePage, TypePageFields, TypePageSkeleton } from './ContentfulPageType';
+export type { TypePage, TypePageFields, TypePageSkeleton } from '@/types/contentful/ContentfulPageType';
