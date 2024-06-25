@@ -1,3 +1,3 @@
 // src/services/index
 
-export * from '@/services/page';
+export { fetchPage, fetchPages, fetchPageById } from '@/services/page';
