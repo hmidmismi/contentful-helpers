@@ -1,5 +1,5 @@
-import { EntryFieldTypes, EntrySkeletonType, ChainModifiers, LocaleCode, Entry, Asset, AssetLink } from 'contentful';
 import { Document } from '@contentful/rich-text-types';
+import { EntryFieldTypes, EntrySkeletonType, ChainModifiers, LocaleCode, Entry, Asset, AssetLink } from 'contentful';
 
 interface TypePageFields {
     title: EntryFieldTypes.Symbol;
@@ -35,4 +35,13 @@ declare function parseContentfulContentImage(asset?: Asset<undefined, string> | 
 }): ImageType | null;
 declare function parseContentfulPage(pageEntry?: PageEntry): PageType | null;
 
-export { type CommonType, type ImageType, type PageType, type TypePage, type TypePageFields, type TypePageSkeleton, parseContentfulContentImage, parseContentfulPage };
+type FetchPageOptions = {
+    slug: string;
+};
+declare function fetchPages(): Promise<PageType[]>;
+declare function fetchPage({ slug }: FetchPageOptions): Promise<PageType | null>;
+declare function fetchPageById({ id }: {
+    id: string;
+}): Promise<PageType | null>;
+
+export { type CommonType, type ImageType, type PageType, type TypePage, type TypePageFields, type TypePageSkeleton, fetchPage, fetchPageById, fetchPages, parseContentfulContentImage, parseContentfulPage };

@@ -1,4 +1,5 @@
-// services
+// src/index.ts
+
 export * from './services';
 
 // types

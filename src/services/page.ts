@@ -1,6 +1,7 @@
+// src/services/page
+
 import { contentfulClient } from '@/lib';
-import { TypePageSkeleton } from '@/types';
-import { PageType } from '@/types';
+import { TypePageSkeleton, PageType } from '@/types';
 import { parseContentfulPage } from '@/utils';
 
 type FetchPageOptions = {

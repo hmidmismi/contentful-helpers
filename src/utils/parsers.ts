@@ -1,3 +1,5 @@
+// src/utils/utils
+
 import { Entry, Asset, AssetLink } from 'contentful';
 
 import { TypePageSkeleton, ImageType, PageType } from '@/types';

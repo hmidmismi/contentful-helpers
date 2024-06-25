@@ -1,1 +1,3 @@
-export * from '@/services';
+// src/services/index
+
+export * from '@/services/page';
