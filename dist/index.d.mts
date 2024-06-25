@@ -29,6 +29,10 @@ interface PageType extends CommonType {
     images: ImageType[];
 }
 
+interface PageSlugContextParams {
+    slug: string;
+}
+
 type PageEntry = Entry<TypePageSkeleton, undefined, string>;
 declare function parseContentfulContentImage(asset?: Asset<undefined, string> | {
     sys: AssetLink;
@@ -44,4 +48,4 @@ declare function fetchPageById({ id }: {
     id: string;
 }): Promise<PageType | null>;
 
-export { type CommonType, type ImageType, type PageType, type TypePage, type TypePageFields, type TypePageSkeleton, fetchPage, fetchPageById, fetchPages, parseContentfulContentImage, parseContentfulPage };
+export { type CommonType, type ImageType, type PageSlugContextParams, type PageType, type TypePage, type TypePageFields, type TypePageSkeleton, fetchPage, fetchPageById, fetchPages, parseContentfulContentImage, parseContentfulPage };
