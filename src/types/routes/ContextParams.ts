@@ -1,4 +1,6 @@
-export interface PageSlugContextParams {
-  slug: string;
+import { ParsedUrlQuery } from 'querystring';
+
+export interface PageSlugContextParams extends ParsedUrlQuery {
+  slug: string | string[];
   // preview: boolean;
 }

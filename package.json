@@ -12,7 +12,7 @@
   "license": "MIT",
   "scripts": {
     "check-types": "tsc --noEmit",
-    "build": "tsup",
+    "build": "tsc --noEmit; tsup",
     "generate-types": "rm -rf ./src/types/contentful/*.ts && export $(cat .env.build | awk '!/^\\s*#/' | awk '!/^\\s*$/'); cf-content-types-generator --spaceId $CONTENTFUL_SPACE_ID --token $CONTENTFUL_MANAGEMENT_TOKEN -o src/types/contentful -X; cd src/types/contentful; for file in Type*.ts; do base_name=$(echo \"$file\" | sed 's/^Type//; s/Page\\.ts$//'); mv \"$file\" \"Contentful${base_name}PageType.ts\"; done; cd -; prettier --write src/types/contentful",
     "lint": "eslint --fix ."
   },

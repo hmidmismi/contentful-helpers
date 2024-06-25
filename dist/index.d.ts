@@ -1,5 +1,6 @@
 import { Document } from '@contentful/rich-text-types';
 import { EntryFieldTypes, EntrySkeletonType, ChainModifiers, LocaleCode, Entry, Asset, AssetLink } from 'contentful';
+import { ParsedUrlQuery } from 'querystring';
 
 interface TypePageFields {
     title: EntryFieldTypes.Symbol;
@@ -29,8 +30,8 @@ interface PageType extends CommonType {
     images: ImageType[];
 }
 
-interface PageSlugContextParams {
-    slug: string;
+interface PageSlugContextParams extends ParsedUrlQuery {
+    slug: string | string[];
 }
 
 type PageEntry = Entry<TypePageSkeleton, undefined, string>;
