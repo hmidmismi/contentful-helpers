@@ -1,6 +1,5 @@
 // src/index.ts
-
-export * from './services';
+export { fetchPage, fetchPages, fetchPageById } from '@/services/page';
 
 // types
 export * from './types';
